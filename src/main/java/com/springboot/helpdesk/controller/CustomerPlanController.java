@@ -21,10 +21,13 @@ public class CustomerPlanController {
     API to add customer buys plan record in customer_plan table with all relevant fields
     * */
     @PostMapping("/api/customerplan/add/{customer_id}/{plan_id}")
-    public void addCustomerPlan(@RequestParam Long customer_id,
-                                @RequestParam Long plan_id,
-                                @RequestBody CustomerPlanDto customerPlanDto){
-        customerPlanService.addCustomerPlan(customerPlanDto,customer_id,plan_id);
+    public void addCustomerPlan(
+            @PathVariable("customer_id") Long customer_id,
+            @PathVariable("plan_id") Long plan_id,
+            @RequestBody CustomerPlanDto customerPlanDto) {
+
+        customerPlanService.addCustomerPlan(
+                customerPlanDto, customer_id, plan_id);
     }
 
 
