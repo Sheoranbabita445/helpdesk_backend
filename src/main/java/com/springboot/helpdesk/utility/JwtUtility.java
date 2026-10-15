@@ -10,11 +10,13 @@ import java.util.Base64;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.function.Function;
+import org.springframework.beans.factory.annotation.Value;
 
 @Component
 public class JwtUtility {
 
-    private String SECRET_KEY = "thisisthesecretkeyneverevereversharethis";
+    @Value("${jwt.secret}")
+    private String SECRET_KEY;
 
     public String generateToken(String username) { //We use this
         Map<String, Object> claims = new HashMap<>();
